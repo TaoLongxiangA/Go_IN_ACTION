@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"runtime"
+	"reflect"
 )
 
 func main() {
-	fmt.Println(runtime.GOMAXPROCS(runtime.NumCPU()))
+	//fmt.Println(runtime.GOMAXPROCS(runtime.NumCPU()))
+	var a int
+	fmt.Println(reflect.TypeOf(a))
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
@@ -11,11 +12,14 @@ var (
 )
 
 func incCounter(id int) {
+	//fmt.Println(counter)
 	defer wg.Done()
-	value := counter
-	//runtime.Gosched()
-	value++
-	counter = value
+	for i := 0; i < 2; i++ {
+		value := counter
+		runtime.Gosched()
+		value++
+		counter = value
+	}
 }
 
 func main() {
